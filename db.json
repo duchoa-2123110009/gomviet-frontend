@@ -1,0 +1,67 @@
+{
+  "banner": {
+    "title": "Gomviet — Không gian gốm thủ công",
+    "subtitle": "Khám phá sản phẩm gốm hiện đại và tham gia workshop trải nghiệm sáng tạo.",
+    "image": "https://images.unsplash.com/photo-1582582494700-18d59c2a0f84?q=80&w=1600&auto=format&fit=crop",
+    "cta1": { "text": "Xem sản phẩm", "link": "#products" },
+    "cta2": { "text": "Workshop gốm", "link": "#workshops" }
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "Bình gốm",
+      "image": "https://images.unsplash.com/photo-1582582494700-18d59c2a0f84?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 2,
+      "name": "Ly gốm",
+      "image": "https://images.unsplash.com/photo-1600585154083-3d04f0c1d3db?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 3,
+      "name": "Đĩa gốm",
+      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 4,
+      "name": "Chậu gốm",
+      "image": "https://images.unsplash.com/photo-1602526216433-2c6d6f8a3c7f?q=80&w=1200&auto=format&fit=crop"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Bình gốm trắng",
+      "description": "Men mờ, tối giản.",
+      "price": 350000,
+      "image": "https://images.unsplash.com/photo-1582582494700-18d59c2a0f84?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 2,
+      "name": "Ly gốm xanh",
+      "description": "Men xanh cổ điển.",
+      "price": 180000,
+      "image": "https://images.unsplash.com/photo-1600585154083-3d04f0c1d3db?q=80&w=1200&auto=format&fit=crop"
+    }
+  ],
+  "workshops": [
+    {
+      "id": 1,
+      "title": "Nặn ly cơ bản",
+      "description": "Kỹ thuật tay căn bản.",
+      "duration": "2h",
+      "capacity": 8,
+      "price": 250000
+    },
+    {
+      "id": 2,
+      "title": "Tạo hình bình hoa",
+      "description": "Thực hành tạo dáng bình hoa.",
+      "duration": "3h",
+      "capacity": 10,
+      "price": 400000
+    }
+  ],
+  "bookings": [],
+  "messages": []
+}
