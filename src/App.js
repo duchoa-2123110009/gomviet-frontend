@@ -1,68 +1,45 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
-import Category from "./pages/Category";
-import Products from "./pages/Product";
-import Workshops from "./pages/Workshop";
-import Banner from "./pages/Banner";
-import ProductDetail from "./pages/ProductDetail";
-import WorkshopDetail from "./pages/WorkshopDetail";
-import Booking from "./pages/Booking";
-import Profile from "./pages/Profile";
 import Auth from "./pages/Auth";
-import Payment from "./pages/Payment"; 
-import StaffPanel from "./components/StaffPanel";
-import PrivateRoute from "./components/PrivateRoute"; // ✅ import
-import AuthStaff from "./pages/AuthStaff";
-import BookingPanel from "./BookingPanel";
-import VnpayReturn from "./pages/VnpayReturn";
-import PaymentResult from "./pages/PaymentResult";
+import JobDetail from "./pages/JobDetail";
+import Dashboard from "./pages/Dashboard";
+import BlogDetail from "./pages/BlogDetail";
+import EmployerDetail from "./pages/EmployerDetail";
+import ApplicantOnboarding from "./pages/ApplicantOnboarding";
+import EmployerOnboarding from "./pages/EmployerOnboarding";
+import FormDemo from "./pages/FormDemo";
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Trang chính */}
-        <Route
-          path="/"
-          element={
-            <>
-              <Banner />
-              <Home />
-              <Workshops />
-              <Footer />
-            </>
-          }
-        />
-
-        {/* Product Detail */}
-        <Route path="/product/:id" element={<ProductDetail />} />
-
-        {/* Workshop Detail */}
-        <Route path="/workshop" element={<WorkshopDetail />} />
-        <Route path="/workshop/:id" element={<WorkshopDetail />} />
-
-        <Route path="/booking/:id" element={<Booking />} />
-        <Route path="/profile" element={<Profile />} />
+        {/* Public Job Board Home */}
+        <Route path="/" element={<Home />} />
+        
+        {/* Public Auth Page */}
         <Route path="/auth" element={<Auth />} />
-        <Route path="/payment/:bookingId" element={<Payment />} />
 
-        {/* ✅ Staff Panel - chỉ staff hoặc admin mới vào được */}
-        <Route path="/auth/staff" element={<AuthStaff />} />
-        <Route path="/staff/bookings" element={<BookingPanel />} />
-        <Route path="/" element={<div className="text-center py-20 text-2xl font-bold">Trang chủ</div>} />
-        <Route path="/booking/:id" element={<Booking />} />
-        <Route path="/vnpay-return" element={<VnpayReturn />} />
-        <Route path="/payment-result" element={<PaymentResult />} />
-<Route
-  path="/staff"
-  element={
-    <PrivateRoute allowedRoles={["staff", "admin"]}>
-      <StaffPanel />
-    </PrivateRoute>
-  }
-/>
+        {/* Onboarding Pages */}
+        <Route path="/applicant-onboarding" element={<ApplicantOnboarding />} />
+        <Route path="/employer-onboarding" element={<EmployerOnboarding />} />
+
+        {/* Demo Forms Page */}
+        <Route path="/form-demo" element={<FormDemo />} />
+
+        {/* Public Job Detail Page */}
+        <Route path="/jobs/:id" element={<JobDetail />} />
+
+        {/* Public Employer Detail Page */}
+        <Route path="/employers/:id" element={<EmployerDetail />} />
+
+        {/* Public Blog Detail Page */}
+        <Route path="/blog/:id" element={<BlogDetail />} />
+        
+        {/* Role-Based Protected Dashboard (internally handles login checking) */}
+        <Route path="/dashboard" element={<Dashboard />} />
+        
+        {/* Fallback route */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );

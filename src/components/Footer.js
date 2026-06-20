@@ -1,76 +1,124 @@
-function Footer() {
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Briefcase, Mail, Phone, MapPin, Heart } from 'lucide-react';
+
+const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-green-50 to-emerald-100 border-t border-green-200">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-4 gap-10 mb-8">
-          <div className="md:col-span-1">
-            <h4 className="font-bold text-2xl mb-4 text-emerald-900">Gomviet</h4>
-            <p className="text-emerald-800 leading-relaxed mb-4">
-              Gốm sứ thủ công Việt Nam
-            </p>
-            <p className="text-emerald-700 text-sm italic">
-              "Tinh hoa gốm sứ - Nét đẹp truyền thống"
+    <footer className="bg-slate-900 text-slate-300 pt-16 pb-8 border-t border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          {/* Brand Info */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <div className="bg-gradient-to-r from-orange-500 to-amber-500 text-white p-2 rounded-xl">
+                <Briefcase className="h-6 w-6" />
+              </div>
+              <span className="text-xl font-bold tracking-tight text-white">
+                Job<span className="text-orange-500">Hunt</span>
+              </span>
+            </div>
+            <p className="text-sm text-slate-400 leading-relaxed font-medium">
+              Nền tảng tìm kiếm việc làm hàng đầu Việt Nam. Kết nối hàng ngàn cơ hội nghề nghiệp mỗi ngày cùng nhà tuyển dụng uy tín.
             </p>
           </div>
-          
+
+          {/* For Candidates */}
           <div>
-            <h4 className="font-semibold mb-4 text-emerald-900 text-lg">Sản phẩm</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-emerald-800 hover:text-emerald-950 transition-colors">Bát đĩa</a></li>
-              <li><a href="#" className="text-emerald-800 hover:text-emerald-950 transition-colors">Ấm chén</a></li>
-              <li><a href="#" className="text-emerald-800 hover:text-emerald-950 transition-colors">Lọ hoa</a></li>
-              <li><a href="#" className="text-emerald-800 hover:text-emerald-950 transition-colors">Trang trí</a></li>
+            <h3 className="text-white font-extrabold text-sm uppercase tracking-wider mb-4 border-b border-slate-800 pb-1.5">Dành cho ứng viên</h3>
+            <ul className="space-y-2.5 text-sm font-semibold text-slate-400">
+              <li>
+                <Link 
+                  to="/" 
+                  onClick={() => {
+                    setTimeout(() => {
+                      const el = document.getElementById('jobs-section');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }} 
+                  className="hover:text-orange-500 transition-colors"
+                >
+                  Tìm kiếm việc làm
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard" className="hover:text-orange-500 transition-colors">Tạo hồ sơ trực tuyến</Link>
+              </li>
+              <li>
+                <a 
+                  href="https://vieclam24h.vn/cam-nang-nghe-nghiep/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-orange-500 transition-colors"
+                >
+                  Cẩm nang nghề nghiệp
+                </a>
+              </li>
+              <li>
+                <Link 
+                  to="/" 
+                  onClick={() => {
+                    setTimeout(() => {
+                      const el = document.getElementById('recruiter-brands');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }} 
+                  className="hover:text-orange-500 transition-colors"
+                >
+                  Xem top công ty
+                </Link>
+              </li>
             </ul>
           </div>
-          
+
+          {/* For Employers */}
           <div>
-            <h4 className="font-semibold mb-4 text-emerald-900 text-lg">Liên hệ</h4>
-            <div className="space-y-3 text-emerald-800">
-              <p className="flex items-start">
-                <span className="mr-2">📍</span>
-                <span>Phuoc Long B, Thủ Đức, HCMC</span>
-              </p>
-              <p className="flex items-center">
-                <span className="mr-2">📧</span>
-                <span>info@gomviet.vn</span>
-              </p>
-              <p className="flex items-center">
-                <span className="mr-2">📞</span>
-                <span className="font-semibold">0901 234 567</span>
-              </p>
-            </div>
+            <h3 className="text-white font-extrabold text-sm uppercase tracking-wider mb-4 border-b border-slate-800 pb-1.5">Dành cho nhà tuyển dụng</h3>
+            <ul className="space-y-2.5 text-sm font-semibold text-slate-400">
+              <li>
+                <Link to="/dashboard" className="hover:text-orange-500 transition-colors">Đăng tin tuyển dụng</Link>
+              </li>
+              <li>
+                <Link to="/dashboard" className="hover:text-orange-500 transition-colors">Tìm kiếm ứng viên</Link>
+              </li>
+              <li>
+                <Link to="/dashboard" className="hover:text-orange-500 transition-colors">Giải pháp nhân sự</Link>
+              </li>
+              <li>
+                <Link to="/dashboard" className="hover:text-orange-500 transition-colors">Báo giá dịch vụ</Link>
+              </li>
+            </ul>
           </div>
-          
+
+          {/* Contact Details */}
           <div>
-            <h4 className="font-semibold mb-4 text-emerald-900 text-lg">Hỗ trợ</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-emerald-800 hover:text-emerald-950 transition-colors">Chính sách đổi trả</a></li>
-              <li><a href="#" className="text-emerald-800 hover:text-emerald-950 transition-colors">Bảo hành sản phẩm</a></li>
-              <li><a href="#" className="text-emerald-800 hover:text-emerald-950 transition-colors">Vận chuyển</a></li>
-              <li><a href="#" className="text-emerald-800 hover:text-emerald-950 transition-colors">Hướng dẫn bảo quản</a></li>
+            <h3 className="text-white font-extrabold text-sm uppercase tracking-wider mb-4 border-b border-slate-800 pb-1.5">Thông tin liên hệ</h3>
+            <ul className="space-y-3 text-sm font-semibold text-slate-400">
+              <li className="flex items-start gap-2.5">
+                <MapPin className="w-4.5 h-4.5 text-orange-500 mt-0.5 shrink-0" />
+                <span>Khu Công Nghệ Cao, Quận 9, TP. Hồ Chí Minh</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Phone className="w-4.5 h-4.5 text-orange-500 shrink-0" />
+                <span>+84 (028) 1234 5678</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Mail className="w-4.5 h-4.5 text-orange-500 shrink-0" />
+                <span>contact@jobhunt.com</span>
+              </li>
             </ul>
           </div>
         </div>
-        
-        <div className="border-t border-green-300 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-emerald-700 text-sm mb-3 md:mb-0">
-            © 2025 Gomviet - Gốm Sứ Thủ Công Việt Nam
+
+        {/* Footer Bottom */}
+        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+          <p>© {new Date().getFullYear()} JobHunt. Tất cả các quyền được bảo lưu.</p>
+          <p className="flex items-center gap-1 mt-2 md:mt-0">
+            Phát triển với <Heart className="w-3 h-3 text-rose-500 fill-rose-500" /> bởi đội ngũ JobHunt
           </p>
-          <div className="flex gap-4">
-            <a href="https://web.facebook.com/trinh.slayyyy2711/" className="w-8 h-8 bg-green-200 hover:bg-green-300 rounded-full flex items-center justify-center transition-colors">
-              <span className="text-emerald-900">f</span>
-            </a>
-            <a href="#" className="w-8 h-8 bg-green-200 hover:bg-green-300 rounded-full flex items-center justify-center transition-colors">
-              <span className="text-emerald-900">in</span>
-            </a>
-            <a href="https://www.instagram.com/trluu_/" className="w-8 h-8 bg-green-200 hover:bg-green-300 rounded-full flex items-center justify-center transition-colors">
-              <span className="text-emerald-900">ig</span>
-            </a>
-          </div>
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;
